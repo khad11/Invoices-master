@@ -125,7 +125,7 @@ function EditInvoice() {
         </div>
         <form
           ref={formRef}
-          className="drawer-side ml-[100px] "
+          className="drawer-side md:ml-[100px] "
           onSubmit={updateInvoice}
         >
           <label
@@ -134,9 +134,9 @@ function EditInvoice() {
             className="drawer-overlay"
           ></label>
           <div>
-            <ul className=" list-a text-base-content h-full w-[720px] ">
+            <ul className=" list-a text-base-content h-full  ">
               {/* Sidebar content here */}
-              <div className="max-w-2xl  list-a p-6 rounded-lg  ">
+              <div className="  list-a p-6 rounded-lg  ">
                 <h1 className="text-2xl font-bold mb-6">New Invoice</h1>
 
                 {/* Bill From */}
@@ -298,7 +298,7 @@ function EditInvoice() {
                       <button>
                         <MdOutlineDelete
                           className="text-3xl cursor-pointer  ml-2"
-                          onClick={() => removeItem(index)}
+                          onClick={() => removeItem(item.id)}
                         />
                       </button>
                     </div>

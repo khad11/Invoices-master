@@ -155,7 +155,7 @@ function CreateInvoie() {
         <form
           ref={formRef}
           onSubmit={getFormData}
-          className="drawer-side ml-[103px]"
+          className="drawer-side md:ml-[103px]"
         >
           <label
             htmlFor="my-drawer"
@@ -163,7 +163,7 @@ function CreateInvoie() {
             className="drawer-overlay"
           ></label>
 
-          <ul className="list-a text-base-content h-full w-[720px]">
+          <ul className="list-a text-base-content h-full ">
             <div>
               <div className=" list-a p-6  ">
                 <h1 className="text-2xl font-bold mb-6">New Invoice</h1>
@@ -278,46 +278,61 @@ function CreateInvoie() {
                   </p>
                 ) : (
                   items.map((item, index) => (
-                    <div key={index} className="flex  items-center gap-4">
-                      <input
-                        className="w-[200px] h-10"
-                        name="itemName"
-                        type="text"
-                        placeholder="Banner Design"
-                        onChange={(e) => {
-                          updateItem(item.id, "name", Number(e.target.value));
-                        }}
-                      />
-                      <input
-                        className="w-[200px] h-10"
-                        name="qty"
-                        type="number"
-                        placeholder="1"
-                        onChange={(e) => {
-                          updateItem(item.id, "qty", Number(e.target.value));
-                        }}
-                      />
-                      <input
-                        className="w-[200px] h-10"
-                        name="price"
-                        type="number"
-                        placeholder="156.00"
-                        onChange={(e) => {
-                          updateItem(item.id, "price", Number(e.target.value));
-                        }}
-                      />
-                      <div className="flex flex-col  gap-2 items-center justify-between p-1">
-                        <span className="text-xl font-bold p-2 w-16  overflow-y-scroll">
-                          {(item.qty * item.price).toFixed(2)}
-                        </span>
-                      </div>
-
-                      <button>
-                        <MdOutlineDelete
-                          className="text-3xl cursor-pointer  ml-2"
-                          onClick={() => removeItem(index)}
+                    <div
+                      key={index}
+                      className="flex flex-row justify-between md:flex-row i   md:gap-2 items-center shadow-2xl  "
+                    >
+                      <div className="flex flex-col md:flex-row">
+                        {" "}
+                        <FormInput
+                          mainName="Item Name"
+                          className=" h-10 mb-2"
+                          name="itemName"
+                          type="text"
+                          placeholder="Banner Design"
+                          onChange={(e) => {
+                            updateItem(item.id, "name", Number(e.target.value));
+                          }}
                         />
-                      </button>
+                        <FormInput
+                          mainName="Qty"
+                          className=" h-10 mb-2"
+                          name="qty"
+                          type="number"
+                          placeholder="1"
+                          onChange={(e) => {
+                            updateItem(item.id, "qty", Number(e.target.value));
+                          }}
+                        />
+                        <FormInput
+                          mainName="Price"
+                          className=" h-10 mb-2"
+                          name="price"
+                          type="number"
+                          placeholder="156.00"
+                          onChange={(e) => {
+                            updateItem(
+                              item.id,
+                              "price",
+                              Number(e.target.value)
+                            );
+                          }}
+                        />
+                      </div>
+                      <div className="flex">
+                        <div className="flex flex-col  gap-2 items-center justify-between p-1">
+                          <span className="text-xl font-bold p-2 w-16  overflow-y-scroll">
+                            {(item.qty * item.price).toFixed(2)}$
+                          </span>
+                        </div>
+
+                        <button>
+                          <MdOutlineDelete
+                            className="text-3xl cursor-pointer  ml-2"
+                            onClick={() => removeItem(index)}
+                          />
+                        </button>
+                      </div>
                     </div>
                   ))
                 )}
@@ -333,7 +348,7 @@ function CreateInvoie() {
               <div className="sticky bottom-0  btn-button left-0 p-8 w-full">
                 <div className="flex justify-between mt-6">
                   <button
-                    className="btn-bg py-2 px-6 rounded-lg"
+                    className="btn-bg py-2 px-6 rounded-lg btn-sm md:btn-md"
                     type="button"
                     onClick={handleDiscard}
                   >
@@ -341,14 +356,14 @@ function CreateInvoie() {
                   </button>
                   <div className="flex gap-2">
                     <button
-                      className="bg-gray-700 text-white py-2 px-6 rounded-lg "
+                      className="bg-gray-700 text-white py-2 px-6 rounded-lg   btn-sm md:btn-md"
                       type="submit"
                       data-status="draft"
                     >
                       Save as Draft
                     </button>
                     <button
-                      className="bg-purple-600 text-white py-2 px-6 rounded-lg"
+                      className="bg-purple-600 text-white py-2 px-6 rounded-lg  btn-sm md:btn-md"
                       type="submit"
                       data-status="pending"
                     >
